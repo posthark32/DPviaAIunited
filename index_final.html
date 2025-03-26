@@ -17,10 +17,6 @@
   <meta name="twitter:description" content="Als unabhängiger Payment-Experte entwickeln wir maßgeschneiderte Zahlungslösungen aus unserem starken Partnernetzwerk. Keine Eigenprodukte, nur das Beste für Ihre Bedürfnisse.">
   <title>Deutsche Payment AG | Unabhängiger Payment-Experte mit starkem Partnernetzwerk</title>
   
-  <!-- Preload critical assets -->
-  <link rel="preload" href="/assets/fonts/roboto.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/images/logo.png" as="image">
-  
   <!-- CSS -->
   <link rel="stylesheet" href="variables.css">
   <link rel="stylesheet" href="main.css">
@@ -28,22 +24,143 @@
   <link rel="stylesheet" href="footer.css">
   <link rel="stylesheet" href="hero.css">
   <link rel="stylesheet" href="card.css">
-  <link rel="stylesheet" href="/sections.css">
-  <link rel="stylesheet" href="/responsive.css">
+  <link rel="stylesheet" href="sections.css">
+  <link rel="stylesheet" href="responsive.css">
   
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://deutsche-payment.com/">
+  <!-- Hamburger Menü Stile -->
+  <style>
+    /* Hamburger icon styling */
+    .hamburger {
+      display: block;
+      position: relative;
+      width: 24px;
+      height: 2px;
+      background-color: var(--light-text-color);
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: var(--light-text-color);
+      left: 0;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    /* Base styling for header */
+    .header {
+      background-color: var(--dark-background-color);
+      color: var(--light-text-color);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header.sticky {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Cookie Banner Styling */
+    .cookie-banner {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--dark-background-color);
+      color: var(--light-text-color);
+      padding: 20px;
+      z-index: 1001;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cookie-categories {
+      margin: 20px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .cookie-category {
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+    }
+
+    .cookie-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Animation styles */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Basic button styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: var(--secondary-color);
+      color: var(--light-text-color);
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #005fa3;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid var(--secondary-color);
+      color: var(--secondary-color);
+    }
+    .btn-secondary:hover {
+      background-color: var(--secondary-color);
+      color: var(--light-text-color);
+    }
+    .btn-tertiary {
+      background-color: transparent;
+      color: var(--light-text-color);
+      border: 1px solid var(--light-text-color);
+    }
+    .btn-tertiary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
 </head>
 <body>
   <!-- Cookie-Banner -->
   <div id="cookie-banner" class="cookie-banner">
     <div class="cookie-content">
       <h3>Datenschutzeinstellungen</h3>
-      <p>Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Weitere Informationen finden Sie in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+      <p>Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
       
       <div class="cookie-categories">
         <div class="cookie-category">
@@ -83,8 +200,8 @@
   <header class="header">
     <div class="container">
       <div class="main-nav">
-        <a href="/" class="logo">
-          <img src="/assets/images/logo.png" alt="Deutsche Payment Logo" width="180" height="50">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="Deutsche Payment Logo" width="180" height="50">
         </a>
         
         <button class="mobile-menu-toggle" aria-label="Menü öffnen">
@@ -93,16 +210,16 @@
         
         <nav>
           <ul class="nav-links">
-            <li><a href="/zahlungsmethoden/">Zahlungsmethoden</a></li>
-            <li><a href="/savemyfees/">SaveMyFees</a></li>
-            <li><a href="/openbankingbnpl/">Open Banking & BNPL</a></li>
-            <li><a href="/risikomanagement/">Risikomanagement</a></li>
-            <li><a href="/unternehmen/">Unternehmen</a></li>
-            <li><a href="/kontakt/">Kontakt</a></li>
+            <li><a href="zahlungsmethoden.html">Zahlungsmethoden</a></li>
+            <li><a href="savemyfees.html">SaveMyFees</a></li>
+            <li><a href="openbankingbnpl.html">Open Banking & BNPL</a></li>
+            <li><a href="risikomanagement.html">Risikomanagement</a></li>
+            <li><a href="unternehmen.html">Unternehmen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </nav>
         
-        <a href="/kontakt/" class="btn btn-primary cta-button">Jetzt Beratungstermin vereinbaren</a>
+        <a href="kontakt.html" class="btn btn-primary cta-button">Jetzt Beratungstermin vereinbaren</a>
       </div>
     </div>
   </header>
@@ -113,15 +230,16 @@
       <div class="hero-content">
         <h1 class="animate-on-scroll">Innovationen für den Payment-Markt von morgen</h1>
         <p class="hero-subtitle animate-on-scroll">Alles aus einer Hand, nicht alles aus einem Haus - Als unabhängiger Payment-Experte entwickeln wir gemeinsam mit Ihnen die optimale Lösung aus unserem starken Partnernetzwerk. Keine Eigenprodukte, nur das Beste für Ihre Bedürfnisse.</p>
-        <a href="/kontakt/" class="btn btn-primary cta-button animate-on-scroll">Jetzt Beratungstermin vereinbaren</a>
+        <a href="kontakt.html" class="btn btn-primary cta-button animate-on-scroll">Jetzt Beratungstermin vereinbaren</a>
       </div>
       
       <div class="hero-partners animate-on-scroll">
         <div class="partner-logos">
-          <img src="/assets/images/partner-logo-1.png" alt="Partner Logo" class="partner-logo">
-          <img src="/assets/images/partner-logo-2.png" alt="Partner Logo" class="partner-logo">
-          <img src="/assets/images/partner-logo-3.png" alt="Partner Logo" class="partner-logo">
-          <img src="/assets/images/partner-logo-4.png" alt="Partner Logo" class="partner-logo">
+          <!-- Platzhalter für Partner-Logos (keine Bilder vorhanden) -->
+          <div style="width: 120px; height: 60px; background-color: rgba(255,255,255,0.2); border-radius: 4px; display: inline-block; margin: 10px;"></div>
+          <div style="width: 120px; height: 60px; background-color: rgba(255,255,255,0.2); border-radius: 4px; display: inline-block; margin: 10px;"></div>
+          <div style="width: 120px; height: 60px; background-color: rgba(255,255,255,0.2); border-radius: 4px; display: inline-block; margin: 10px;"></div>
+          <div style="width: 120px; height: 60px; background-color: rgba(255,255,255,0.2); border-radius: 4px; display: inline-block; margin: 10px;"></div>
         </div>
       </div>
     </div>
@@ -135,29 +253,32 @@
       <div class="card-grid">
         <div class="card animate-on-scroll">
           <div class="card-icon">
-            <img src="/assets/images/icon-savemyfees.svg" alt="SaveMyFees Icon" width="60" height="60">
+            <!-- Platzhalter für Icon -->
+            <div style="width: 60px; height: 60px; background-color: #0077cc; border-radius: 50%;"></div>
           </div>
           <h3>SaveMyFees - Optimierung</h3>
           <p>Unsere KI-gestützte Analyseplattform SaveMyFees revolutioniert die Art, wie Unternehmen ihre Zahlungskosten optimieren. Mit unserem transparenten IC++ Preismodell haben Sie volle Kontrolle über alle Gebührenkomponenten - ohne versteckte Aufschläge.</p>
-          <a href="/savemyfees/" class="btn btn-secondary">Mehr erfahren</a>
+          <a href="savemyfees.html" class="btn btn-secondary">Mehr erfahren</a>
         </div>
         
         <div class="card animate-on-scroll">
           <div class="card-icon">
-            <img src="/assets/images/icon-payment.svg" alt="Payment Services Icon" width="60" height="60">
+            <!-- Platzhalter für Icon -->
+            <div style="width: 60px; height: 60px; background-color: #0077cc; border-radius: 50%;"></div>
           </div>
           <h3>Payment-Services als ISO</h3>
           <p>Als ISO (Independent Sales Organization) bieten wir Ihnen direkten Zugang zu führenden Payment-Providern. Ob E-Commerce, stationärer Handel, Mobile Payments oder wiederkehrende Zahlungen - wir entwickeln die perfekte Lösung für Ihr Geschäftsmodell.</p>
-          <a href="/zahlungsmethoden/" class="btn btn-secondary">Mehr erfahren</a>
+          <a href="zahlungsmethoden.html" class="btn btn-secondary">Mehr erfahren</a>
         </div>
         
         <div class="card animate-on-scroll">
           <div class="card-icon">
-            <img src="/assets/images/icon-realtime.svg" alt="Real-time Payment Icon" width="60" height="60">
+            <!-- Platzhalter für Icon -->
+            <div style="width: 60px; height: 60px; background-color: #0077cc; border-radius: 50%;"></div>
           </div>
           <h3>Real-time Payment Innovation</h3>
           <p>Zeit ist Geld - besonders bei Zahlungen. Unsere Echtzeit-Auszahlungslösung ermöglicht sofortige Verfügbarkeit von Geldern, ideal für zeitkritische Geschäftsmodelle im Entertainment- und Marketplace-Bereich.</p>
-          <a href="/openbankingbnpl/" class="btn btn-secondary">Mehr erfahren</a>
+          <a href="openbankingbnpl.html" class="btn btn-secondary">Mehr erfahren</a>
         </div>
       </div>
     </div>
@@ -189,17 +310,8 @@
       </div>
       
       <div class="features-image animate-on-scroll">
-        <picture>
-          <source srcset="/assets/images/webp/payment-dashboard.webp" type="image/webp">
-          <source srcset="/assets/images/payment-dashboard.jpg" type="image/jpeg">
-          <img 
-            src="/assets/images/payment-dashboard.jpg" 
-            alt="Payment Dashboard" 
-            loading="lazy"
-            width="600"
-            height="400"
-            class="responsive-image">
-        </picture>
+        <!-- Platzhalter für Dashboard-Bild -->
+        <div style="width: 600px; height: 400px; background-color: #f0f0f0; border-radius: 8px;"></div>
       </div>
     </div>
   </section>
@@ -208,17 +320,8 @@
   <section class="risk-section">
     <div class="container">
       <div class="risk-image animate-on-scroll">
-        <picture>
-          <source srcset="/assets/images/webp/risk-management.webp" type="image/webp">
-          <source srcset="/assets/images/risk-management.jpg" type="image/jpeg">
-          <img 
-            src="/assets/images/risk-management.jpg" 
-            alt="Risikomanagement" 
-            loading="lazy"
-            width="600"
-            height="400"
-            class="responsive-image">
-        </picture>
+        <!-- Platzhalter für Risikomanagement-Bild -->
+        <div style="width: 600px; height: 400px; background-color: #f0f0f0; border-radius: 8px;"></div>
       </div>
       
       <div class="risk-content">
@@ -227,7 +330,8 @@
         <ul class="feature-list">
           <li class="animate-on-scroll">
             <div class="feature-icon">
-              <img src="/assets/images/icon-ai.svg" alt="KI Icon" width="40" height="40">
+              <!-- Platzhalter für Icon -->
+              <div style="width: 40px; height: 40px; background-color: #0077cc; border-radius: 50%;"></div>
             </div>
             <div class="feature-text">
               <h4>KI-basierte Entscheidungsprozesse</h4>
@@ -237,7 +341,8 @@
           
           <li class="animate-on-scroll">
             <div class="feature-icon">
-              <img src="/assets/images/icon-verify.svg" alt="Verifizierung Icon" width="40" height="40">
+              <!-- Platzhalter für Icon -->
+              <div style="width: 40px; height: 40px; background-color: #0077cc; border-radius: 50%;"></div>
             </div>
             <div class="feature-text">
               <h4>Verifizierung und Velocity Checks</h4>
@@ -247,7 +352,8 @@
           
           <li class="animate-on-scroll">
             <div class="feature-icon">
-              <img src="/assets/images/icon-support.svg" alt="Support Icon" width="40" height="40">
+              <!-- Platzhalter für Icon -->
+              <div style="width: 40px; height: 40px; background-color: #0077cc; border-radius: 50%;"></div>
             </div>
             <div class="feature-text">
               <h4>Direkter Kontakt mit Risikoanalysten</h4>
@@ -257,7 +363,8 @@
           
           <li class="animate-on-scroll">
             <div class="feature-icon">
-              <img src="/assets/images/icon-chargeback.svg" alt="Chargeback Icon" width="40" height="40">
+              <!-- Platzhalter für Icon -->
+              <div style="width: 40px; height: 40px; background-color: #0077cc; border-radius: 50%;"></div>
             </div>
             <div class="feature-text">
               <h4>Chargeback-Management</h4>
@@ -266,7 +373,7 @@
           </li>
         </ul>
         
-        <a href="/risikomanagement/" class="btn btn-secondary animate-on-scroll">Mehr zum Risikomanagement</a>
+        <a href="risikomanagement.html" class="btn btn-secondary animate-on-scroll">Mehr zum Risikomanagement</a>
       </div>
     </div>
   </section>
@@ -277,7 +384,7 @@
       <div class="cta-content animate-on-scroll">
         <h2>Bereit für die optimale Payment-Lösung?</h2>
         <p>Vereinbaren Sie jetzt einen unverbindlichen Beratungstermin und erfahren Sie, wie wir Ihre Zahlungsabwicklung optimieren können.</p>
-        <a href="/kontakt/" class="btn btn-primary cta-button">Jetzt Beratungstermin vereinbaren</a>
+        <a href="kontakt.html" class="btn btn-primary cta-button">Jetzt Beratungstermin vereinbaren</a>
       </div>
     </div>
   </section>
@@ -287,34 +394,35 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-column">
-          <a href="/" class="footer-logo">
-            <img src="/assets/images/logo-white.png" alt="Deutsche Payment Logo" width="180" height="50">
+          <a href="index.html" class="footer-logo">
+            <!-- Platzhalter für Logo -->
+            <div style="width: 180px; height: 50px; background-color: rgba(255,255,255,0.2); border-radius: 4px;"></div>
           </a>
           <p>Als unabhängiger Payment-Experte (ISO) entwickeln wir maßgeschneiderte Zahlungslösungen aus unserem starken Partnernetzwerk.</p>
           <div class="social-links">
-            <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
-            <a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="icon-facebook"></i></a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
           </div>
         </div>
         
         <div class="footer-column">
           <h4>Lösungen</h4>
           <ul>
-            <li><a href="/zahlungsmethoden/">Zahlungsmethoden</a></li>
-            <li><a href="/savemyfees/">SaveMyFees</a></li>
-            <li><a href="/openbankingbnpl/">Open Banking & BNPL</a></li>
-            <li><a href="/risikomanagement/">Risikomanagement</a></li>
+            <li><a href="zahlungsmethoden.html">Zahlungsmethoden</a></li>
+            <li><a href="savemyfees.html">SaveMyFees</a></li>
+            <li><a href="openbankingbnpl.html">Open Banking & BNPL</a></li>
+            <li><a href="risikomanagement.html">Risikomanagement</a></li>
           </ul>
         </div>
         
         <div class="footer-column">
           <h4>Unternehmen</h4>
           <ul>
-            <li><a href="/unternehmen/">Über uns</a></li>
-            <li><a href="/unternehmen/#team">Team</a></li>
-            <li><a href="/unternehmen/#karriere">Karriere</a></li>
-            <li><a href="/investor-relations/">Investor Relations</a></li>
+            <li><a href="unternehmen.html">Über uns</a></li>
+            <li><a href="unternehmen.html#team">Team</a></li>
+            <li><a href="unternehmen.html#karriere">Karriere</a></li>
+            <li><a href="investor-relations.html">Investor Relations</a></li>
           </ul>
         </div>
         
@@ -323,7 +431,7 @@
           <ul>
             <li><a href="tel:+4930814548600">+49 30 81454860</a></li>
             <li><a href="mailto:info@deutsche-payment.com">info@deutsche-payment.com</a></li>
-            <li><a href="/kontakt/">Kontaktformular</a></li>
+            <li><a href="kontakt.html">Kontaktformular</a></li>
           </ul>
         </div>
       </div>
@@ -333,113 +441,98 @@
           &copy; 2025 Deutsche Payment AG. Alle Rechte vorbehalten.
         </div>
         <div class="legal-links">
-          <a href="/impressum/">Impressum</a>
-          <a href="/datenschutz/">Datenschutz</a>
-          <a href="/agb/">AGB</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- CSRF Token für Formulare -->
+  <!-- Main JavaScript für Navigation, Animationen etc. -->
   <script>
-    // CSRF-Token generieren
-    function generateCSRFToken() {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let token = '';
-      for (let i = 0; i < 32; i++) {
-        token += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return token;
-    }
-
-    // CSRF-Token in Session speichern und in Formulare einfügen
+    // Navigation functionality
     document.addEventListener('DOMContentLoaded', function() {
-      // Token generieren und in Session Storage speichern
-      const csrfToken = generateCSRFToken();
-      sessionStorage.setItem('csrfToken', csrfToken);
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
       
-      // Token in alle Formulare einfügen
-      const forms = document.querySelectorAll('form');
-      forms.forEach(function(form) {
-        const tokenInput = document.createElement('input');
-        tokenInput.type = 'hidden';
-        tokenInput.name = 'csrf_token';
-        tokenInput.value = csrfToken;
-        form.appendChild(tokenInput);
-      });
-    });
-  </script>
-  
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Deutsche Payment AG",
-    "url": "https://deutsche-payment.com",
-    "logo": "https://deutsche-payment.com/assets/images/logo.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/deutsche-payment",
-      "https://twitter.com/deutschepayment",
-      "https://www.facebook.com/DeutschePayment"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+49-30-81454860",
-      "contactType": "customer service",
-      "availableLanguage": ["German", "English"]
-    }
-  }
-  </script>
-  
-  <!-- FAQ Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Was ist ein unabhängiger Payment-Experte (ISO)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Als ISO (Independent Sales Organization) bieten wir Ihnen direkten Zugang zu führenden Payment-Providern. Wir sind nicht an eigene Produkte gebunden und können daher die optimale Lösung für Ihre Bedürfnisse auswählen."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Welche Zahlungsmethoden bietet die Deutsche Payment AG an?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Wir bieten über 100 verschiedene Zahlungsarten weltweit an, darunter Kreditkarten, Lastschrift, Sofortüberweisung, PayPal, Mobile Payment und viele lokale Zahlungsmethoden."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was ist SaveMyFees?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "SaveMyFees ist unsere KI-gestützte Analyseplattform, die die Art revolutioniert, wie Unternehmen ihre Zahlungskosten optimieren. Mit unserem transparenten IC++ Preismodell haben Sie volle Kontrolle über alle Gebührenkomponenten - ohne versteckte Aufschläge."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie sicher sind die Zahlungslösungen der Deutschen Payment AG?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Unsere Zahlungslösungen erfüllen höchste Sicherheitsstandards. Wir sind PCI-DSS konform und arbeiten nur mit voll lizenzierten Zahlungsdienstleistern zusammen. Zudem bieten wir umfassende Risikomanagement-Lösungen zum Schutz vor Betrug."
-        }
+      if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          mobileMenuToggle.classList.toggle('active');
+        });
       }
-    ]
-  }
-  </script>
-  
-  <!-- JavaScript -->
-  <script src="main.js" defer></script>
-  
-  <!-- Cookie-Banner Script -->
-  <script>
+
+      // Sticky header
+      const header = document.querySelector('header');
+      if (header) {
+        const headerOffset = header.offsetTop;
+        window.onscroll = function() {
+          if (window.pageYOffset > headerOffset) {
+            header.classList.add('sticky');
+          } else {
+            header.classList.remove('sticky');
+          }
+        };
+      }
+
+      // Animation on scroll
+      const animateElements = document.querySelectorAll('.animate-on-scroll');
+      
+      if ('IntersectionObserver' in window) {
+        let observer = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animated');
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        animateElements.forEach(function(element) {
+          observer.observe(element);
+        });
+      } else {
+        // Fallback für Browser ohne IntersectionObserver
+        animateElements.forEach(function(element) {
+          element.classList.add('animated');
+        });
+      }
+
+      // Statistics counter animation
+      const counters = document.querySelectorAll('.counter');
+      
+      if ('IntersectionObserver' in window) {
+        let counterObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              let counter = entry.target;
+              let target = parseInt(counter.getAttribute('data-target'));
+              let count = 0;
+              let increment = Math.ceil(target / 100);
+              
+              const updateCount = setInterval(function() {
+                count += increment;
+                counter.textContent = count;
+                
+                if (count >= target) {
+                  counter.textContent = target;
+                  clearInterval(updateCount);
+                }
+              }, 20);
+              
+              observer.unobserve(counter);
+            }
+          });
+        });
+        
+        counters.forEach(function(counter) {
+          counterObserver.observe(counter);
+        });
+      }
+    });
+
+    // Cookie-Banner Script
     document.addEventListener('DOMContentLoaded', function() {
       const cookieBanner = document.getElementById('cookie-banner');
       const acceptAllBtn = document.getElementById('accept-all-cookies');
@@ -526,17 +619,68 @@
     });
   </script>
   
-  <!-- Service Worker Registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Deutsche Payment AG",
+    "url": "https://deutsche-payment.com",
+    "logo": "https://deutsche-payment.com/assets/images/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/deutsche-payment",
+      "https://twitter.com/deutschepayment",
+      "https://www.facebook.com/DeutschePayment"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+49-30-81454860",
+      "contactType": "customer service",
+      "availableLanguage": ["German", "English"]
     }
+  }
+  </script>
+  
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was ist ein unabhängiger Payment-Experte (ISO)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Als ISO (Independent Sales Organization) bieten wir Ihnen direkten Zugang zu führenden Payment-Providern. Wir sind nicht an eigene Produkte gebunden und können daher die optimale Lösung für Ihre Bedürfnisse auswählen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Zahlungsmethoden bietet die Deutsche Payment AG an?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir bieten über 100 verschiedene Zahlungsarten weltweit an, darunter Kreditkarten, Lastschrift, Sofortüberweisung, PayPal, Mobile Payment und viele lokale Zahlungsmethoden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist SaveMyFees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SaveMyFees ist unsere KI-gestützte Analyseplattform, die die Art revolutioniert, wie Unternehmen ihre Zahlungskosten optimieren. Mit unserem transparenten IC++ Preismodell haben Sie volle Kontrolle über alle Gebührenkomponenten - ohne versteckte Aufschläge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie sicher sind die Zahlungslösungen der Deutschen Payment AG?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unsere Zahlungslösungen erfüllen höchste Sicherheitsstandards. Wir sind PCI-DSS konform und arbeiten nur mit voll lizenzierten Zahlungsdienstleistern zusammen. Zudem bieten wir umfassende Risikomanagement-Lösungen zum Schutz vor Betrug."
+        }
+      }
+    ]
+  }
   </script>
 </body>
 </html>
