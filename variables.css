@@ -1,0 +1,27 @@
+/* Farbschema, Typografie und grundlegende Variablen */
+:root {
+  /* Abstände und Größen */
+  --container-padding: 20px;
+  
+  /* Typografie */
+  --heading-large: 2.5rem;
+  --heading-medium: 2rem;
+  --heading-small: 1.5rem;
+  --text-normal: 1rem;
+  --text-small: 0.875rem;
+  
+  /* Abstände */
+  --spacing-large: 80px;
+  --spacing-medium: 40px;
+  --spacing-small: 20px;
+  
+  /* Anmerkung: Folgende Variablen werden in der CSS referenziert, 
+     sind aber in der Originaldatei nicht definiert - hier hinzufügen */
+  --background-color: #ffffff;
+  --dark-background-color: #333333;
+  --light-text-color: #ffffff;
+  --secondary-color: #4a90e2;
+  --border-radius: 4px;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}

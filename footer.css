@@ -1,0 +1,13 @@
+/* Footer-Stile */
+
+.footer {
+  background-color: var(--dark-background-color);
+  color: var(--light-text-color);
+  padding: var(--spacing-medium) 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}

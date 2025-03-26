@@ -1,0 +1,65 @@
+/* Allgemeine Stile */
+
+/* Responsive Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Responsive Grid System */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+/* Responsive Bilder */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Typografie */
+h1 {
+  font-size: var(--heading-large);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-small);
+}
+
+h2 {
+  font-size: var(--heading-medium);
+  line-height: 1.3;
+  margin-bottom: var(--spacing-small);
+}
+
+h3 {
+  font-size: var(--heading-small);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-small);
+}
+
+p {
+  font-size: var(--text-normal);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-small);
+}
+
+/* Barrierefreiheit-Optimierungen */
+:focus {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,0 +1,147 @@
+/* Responsive Design Optimierungen */
+
+/* Media Queries für Tablets */
+@media (max-width: 992px) {
+  :root {
+    --heading-large: 2.2rem;
+    --heading-medium: 1.8rem;
+    --heading-small: 1.3rem;
+    --spacing-large: 60px;
+    --spacing-medium: 30px;
+  }
+  
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Media Queries für Mobilgeräte */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 15px;
+    --heading-large: 2rem;
+    --heading-medium: 1.6rem;
+    --heading-small: 1.2rem;
+    --text-normal: 0.95rem;
+    --spacing-large: 40px;
+    --spacing-medium: 25px;
+    --spacing-small: 15px;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-background-color);
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid {
+    gap: 20px;
+  }
+}
+
+/* Media Queries für kleine Mobilgeräte */
+@media (max-width: 480px) {
+  :root {
+    --heading-large: 1.8rem;
+    --heading-medium: 1.4rem;
+    --heading-small: 1.1rem;
+    --text-normal: 0.9rem;
+    --spacing-large: 30px;
+    --spacing-medium: 20px;
+    --spacing-small: 10px;
+  }
+}
+
+/* Optimierungen für Touch-Geräte */
+@media (hover: none) {
+  /* Größere Touch-Targets für Buttons und Links */
+  button, 
+  .btn, 
+  .nav-links a, 
+  .footer a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 20px;
+  }
+  
+  /* Entfernen von Hover-Effekten */
+  .card:hover {
+    transform: none;
+    box-shadow: var(--box-shadow);
+  }
+  
+  /* Anpassung von Dropdown-Menüs für Touch */
+  .dropdown-menu {
+    display: none;
+  }
+  
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Druckoptimierungen */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  .no-print {
+    display: none;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+  
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  p, blockquote, ul, ol, dl, table {
+    page-break-inside: avoid;
+  }
+}

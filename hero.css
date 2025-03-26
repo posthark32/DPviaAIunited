@@ -1,0 +1,11 @@
+/* Hero-Bereich Stile */
+
+.hero {
+  padding: var(--spacing-large) 0;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
