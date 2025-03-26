@@ -1,0 +1,112 @@
+/* Zusätzliche Stile für besseres Aussehen */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Header-Stile */
+.header {
+  background-color: #0a2540;
+  color: #fff;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Hero-Bereich */
+.hero {
+  background-color: #0a2540;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+/* Karten-Design verbessern */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  margin-bottom: 20px;
+}
+
+/* Verbesserte Button-Stile */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid #0077cc;
+  color: #0077cc;
+}
+
+.btn-secondary:hover {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+/* Farbige Kreise für Icons */
+.card-icon div {
+  background-color: #0077cc;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Abschnitte mit Abstand */
+section {
+  padding: 60px 0;
+}
+
+/* Footer-Stile */
+.footer {
+  background-color: #0a2540;
+  color: #fff;
+  padding: 40px 0;
+}
+
+/* Responsive-Anpassungen */
+@media (max-width: 768px) {
+  section {
+    padding: 40px 0;
+  }
+  
+  .card {
+    margin-bottom: 30px;
+  }
+}
