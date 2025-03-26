@@ -1,41 +1,5 @@
-// Meta tags for all pages
-const metaTags = {
-  home: {
-    title: "Deutsche Payment AG | Unabhängiger Payment-Experte mit starkem Partnernetzwerk",
-    description: "Als unabhängiger Payment-Experte entwickeln wir maßgeschneiderte Zahlungslösungen aus unserem starken Partnernetzwerk. Keine Eigenprodukte, nur das Beste für Ihre Bedürfnisse.",
-    keywords: "payment, zahlungslösungen, deutsche payment, zahlungsabwicklung, payment-experte, iso"
-  },
-  zahlungsmethoden: {
-    title: "Digitale Zahlungsmethoden | Deutsche Payment AG",
-    description: "Optimale Kundenerfahrungen durch vielfältige Zahlungsmethoden. Bieten Sie Ihren Kunden reibungslose und sichere Bezahlvorgänge für höhere Conversion Rates.",
-    keywords: "zahlungsmethoden, kreditkarten, lastschrift, sofortüberweisung, paypal, mobile payment"
-  },
-  savemyfees: {
-    title: "SaveMyFees | KI-gestützte Kostenoptimierung | Deutsche Payment AG",
-    description: "Unsere KI-gestützte Analyseplattform SaveMyFees revolutioniert die Art, wie Unternehmen ihre Zahlungskosten optimieren. Sparen Sie 20-30% Ihrer Zahlungskosten.",
-    keywords: "savemyfees, payment-kosten, kostenoptimierung, zahlungskosten, interchange++, payment-analyse"
-  },
-  openBanking: {
-    title: "Open Banking & BNPL | Die Payments 4.X-Ära | Deutsche Payment AG",
-    description: "Open Banking, Konto-zu-Konto-Zahlungen und Buy Now, Pay Later Lösungen für die Payment 4.X-Ära. Revolutionieren Sie Ihre Zahlungsabwicklung.",
-    keywords: "open banking, bnpl, buy now pay later, konto-zu-konto, a2a, payment 4.x"
-  },
-  risikomanagement: {
-    title: "Risiko- & Fraudmanagement | Sicherheit mit System | Deutsche Payment AG",
-    description: "Mit modernsten Technologien und holistischen Risikostrategien minimieren Sie Betrugsrisiken und steigern Akzeptanzraten. Maximale Sicherheit für Ihre Zahlungen.",
-    keywords: "risikomanagement, fraudmanagement, betrugsschutz, payment-sicherheit, chargeback-management"
-  },
-  unternehmen: {
-    title: "Über uns | Deutsche Payment AG | Unabhängiger Payment-Experte",
-    description: "Die Deutsche Payment AG ist ein unabhängiger Payment-Experte mit starkem Partnernetzwerk. Erfahren Sie mehr über unsere Werte, unser Team und unsere Vision.",
-    keywords: "deutsche payment, unternehmen, payment-experte, iso, über uns, team"
-  },
-  kontakt: {
-    title: "Kontakt | Deutsche Payment AG | Beratung & Support",
-    description: "Kontaktieren Sie die Deutsche Payment AG für Beratung zu optimalen Payment-Lösungen oder Support für bestehende Kunden. Wir freuen uns auf Ihre Nachricht.",
-    keywords: "kontakt, beratung, support, deutsche payment, beratungstermin"
-  }
-};
+// Import shared constants
+const { metaTags } = require('./shared-constants');
 
 // Minify and bundle JavaScript
 const minifyJS = () => {
@@ -373,6 +337,5 @@ module.exports = {
   generateHtaccess,
   generateRobotsTxt,
   generateSitemapXml,
-  generatePerformanceTestScript,
-  metaTags
+  generatePerformanceTestScript
 };
