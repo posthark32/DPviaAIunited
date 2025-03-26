@@ -1,7 +1,20 @@
 /* Farbschema, Typografie und grundlegende Variablen */
 :root {
+  /* Farben */
+  --primary-color: #0a2540;
+  --secondary-color: #0077cc;
+  --accent-color: #e63946;
+  --text-color: #333333;
+  --light-text-color: #ffffff;
+  --background-color: #ffffff;
+  --light-background-color: #f8f9fa;
+  --dark-background-color: #0a2540;
+  
   /* Abstände und Größen */
   --container-padding: 20px;
+  --border-radius: 4px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
   
   /* Typografie */
   --heading-large: 2.5rem;
@@ -14,14 +27,4 @@
   --spacing-large: 80px;
   --spacing-medium: 40px;
   --spacing-small: 20px;
-  
-  /* Anmerkung: Folgende Variablen werden in der CSS referenziert, 
-     sind aber in der Originaldatei nicht definiert - hier hinzufügen */
-  --background-color: #ffffff;
-  --dark-background-color: #333333;
-  --light-text-color: #ffffff;
-  --secondary-color: #4a90e2;
-  --border-radius: 4px;
-  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
 }
